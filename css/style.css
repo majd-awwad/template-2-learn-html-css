@@ -2,6 +2,8 @@
 :root {
     --mainColor: #19c8fa;
     --transparentColor: rgb(15 116 143 / 70%);
+    --specialHeadingColor: #384141;
+    --specialHeadingShapeDownPosition: -15%;
 }
 
 * {
@@ -50,6 +52,53 @@ ul {
 /*End Global Rules*/
 /*----------------------------------------------------------------------------*/
 /*Start Components Section*/
+
+    .special-heading {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+    }
+
+    .special-heading h1 {
+        color: var(--specialHeadingColor);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .special-heading h1::before{
+        content: "";
+        background-color: white;
+        height: 10px;
+        width: 10px;
+        position: absolute;
+        bottom: var(--specialHeadingShapeDownPosition);
+        left: 50%;
+        transform: translate(-50% , 50%);
+        border: 1px solid var(--specialHeadingColor);
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    .special-heading h1::after{
+        content: "";
+        background-color: var(--specialHeadingColor);
+        height: 1px;
+        width: 70%;
+        position: absolute;
+        bottom: var(--specialHeadingShapeDownPosition);
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+    }
+
+    .special-heading p {
+        color: gray;
+        text-align: center;
+    }
 
 /*End Components Section*/
 /*----------------------------------------------------------------------------*/
@@ -254,7 +303,7 @@ header .container nav .menu-tab [type="checkbox"] {
         bottom: 1%;
         left: 50%;
         transform: translateX(-50%);
-        width: 8%;
+        width: 4%;
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
@@ -284,3 +333,54 @@ header .container nav .menu-tab [type="checkbox"] {
 
 /*End Landing Section*/
 /*----------------------------------------------------------------------------*/
+
+/*Start Services Section*/
+    .services{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+
+    .serv {
+        display: flex;
+    }
+
+    .serv-content{
+        display: grid;
+        grid-template-columns: repeat(auto-fill , minmax(400px , 1fr));
+        grid-row-gap: 60px;
+        grid-column-gap: 200px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .serv i {
+        margin-right: 50px;
+        color: var(--mainColor);
+    }
+
+    .serv .serv-text h2 {
+        color: var(--mainColor);
+        font-weight: 800;
+        font-size: 2rem;
+    }
+
+    .serv .serv-text p {
+        font-size: 1.3rem;
+    }
+    @media (max-width: 820px) {
+        .serv , .serv-text {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .serv .serv-text p {
+            text-align: center;
+        }
+    }
+
+/*End Services Section*/
